@@ -6,6 +6,7 @@
     <ul id="qr-reader-results"></ul>
 </body>
 <script src="/html5-qrcode.min.js"></script>
+<script src="jquery.js"></script>
 <script>
     function docReady(fn) {
         // see if DOM is already available
@@ -27,10 +28,7 @@
                 lastResult = decodedText;
                 // Handle on success condition with the decoded message.
                 console.log(`Scan result ${decodedText}`, decodedResult);
-                const node = document.createElement("li");
-                const textnode = document.createTextNode(decodedText);
-                node.appendChild(textnode);
-                resultContainer.appendChild(node);
+                $('#qr-reader-results').append(`<li>${decodedText}</li>`);
             }
         }
 
